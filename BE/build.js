@@ -1,4 +1,3 @@
-// build.js
 require('esbuild').build({
   entryPoints: ['src/server.ts'],
   outfile: 'dist/server.js',
