@@ -1,5 +1,19 @@
 ## Setup
 
+### Atention
+
+Need to follow thess steps to run the application, inn both case, go to the ``.env-example file``, and create a new file caled .env and use the same locahost ip is there.
+
+### For Frontend
+```bash
+VITE_BASE_URL='ip ...'
+```
+
+### For Backend
+```bash
+FE_IP='ip ...'
+```
+
 ### Backend
 
 1. Navigate to the `BE` folder.
