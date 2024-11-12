@@ -62,7 +62,7 @@ const CountryGrid: React.FC<CountryGridProps> = ({ searchQuery }) => {
               </div>
               <div className='w-full flex justify-end '>
                 <button
-                  className=' bg-blue-200 hover:bg-green-200 rounded-md px-2 py-2 text-slate-100 font-bold'
+                  className=' bg-slate-400 hover:bg-gray-900 rounded-md px-2 py-2 text-slate-100 font-bold'
                   onClick={() => handleopenModal(country)}
                 > 
                   View
