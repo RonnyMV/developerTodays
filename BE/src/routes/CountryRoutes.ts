@@ -1,4 +1,3 @@
-// src/routes/CountryRoutes.ts
 import { Router } from 'express';
 import { CountryController } from './../controllers/countryController';
 
