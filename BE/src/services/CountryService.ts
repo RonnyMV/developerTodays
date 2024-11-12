@@ -23,9 +23,6 @@ export class CountryService {
       (country: any) => country.iso2 === countryCode || country.iso3 === countryCode
     ) || '';
 
-    console.log(flag, 'flagggggg')
-    console.log(population, 'flagggggg')
-
     return {
       ...countryInfo,
       population,

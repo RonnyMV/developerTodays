@@ -9,7 +9,6 @@ const CountryGrid: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleopenModal = (country:CountryResumedDTO) => { 
-    console.log(country)
     setSelect(country.countryCode)
     setIsModalOpen(true)
   }
