@@ -1,4 +1,4 @@
 # developerTodays
 
 
-If you've seen this message, i ran out of energy in my quarter, and couldn't push the rest of the code. soon as it comes back, i will publish it. Thank you.
+If you've seen this message, wanted you to know that I ran out of power in my area, and after almost two hours of programming using my cellphone’s internet, my laptop also ran out of battery. As soon as the power returns, I’ll publish my work. Thank you for your understanding and patience.
