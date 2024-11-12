@@ -11,9 +11,10 @@ export class App {
   }
 
   private middlewares() {
+    const IP_address = process.env.FE_IP || 'http://localhost:5173'
 
     this.app.use((req: Request, res: Response, next: NextFunction) => {
-      res.header('Access-Control-Allow-Origin', process.env.FE_IP);
+      res.header('Access-Control-Allow-Origin', IP_address);
       res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
       res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
       res.header('Access-Control-Allow-Credentials', 'true'); 
