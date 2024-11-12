@@ -15,9 +15,16 @@ export class CountryService {
     const countryInfo = await ApiClient.get(`${CountryService.COUNTRY_INFO_URL}/${countryCode}`);
     const populationData = await ApiClient.get(CountryService.POPULATION_DATA_URL);
     const flagData = await ApiClient.get(CountryService.FLAG_URL);
+    const population = populationData.data.find(
+      (country: any) => country.iso3 === countryCode || country.code === countryCode
+    ) || [];
+    
+    const flag = flagData.data.find(
+      (country: any) => country.iso2 === countryCode || country.iso3 === countryCode
+    ) || '';
 
-    const population = populationData.data.find((country: any) => country.iso3 === countryCode)?.populationCounts || [];
-    const flag = flagData.data.find((country: any) => country.iso3 === countryCode)?.flag || '';
+    console.log(flag, 'flagggggg')
+    console.log(population, 'flagggggg')
 
     return {
       ...countryInfo,
