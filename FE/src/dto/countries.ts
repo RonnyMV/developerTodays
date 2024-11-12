@@ -27,7 +27,9 @@ export interface Country {
   countryCode: string;
   region: string;
   borders: Border[];
-  flag: string;
+  flag: {
+    flag: string;
+  };
   population: number[];
 }
 

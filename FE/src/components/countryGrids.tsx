@@ -3,15 +3,22 @@ import httpClient from '../service/httpClient';
 import { CountryResumedDTO } from '../dto/countries';
 import CountryModal from './countryInfo';
 
-const CountryGrid: React.FC = () => {
-  const [countries, setCountries] = useState<CountryResumedDTO | []>([]);
-  const [select, setSelect] = useState <any>('');
+interface CountryGridProps {
+  searchQuery: string;
+}
+const CountryGrid: React.FC<CountryGridProps> = ({ searchQuery }) => {
+  const [countries, setCountries] = useState<CountryResumedDTO[]>([]);
+  const [select, setSelect] = useState <string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleopenModal = (country:CountryResumedDTO) => { 
     setSelect(country.countryCode)
     setIsModalOpen(true)
   }
+
+  const filteredCountries = countries.filter((country: CountryResumedDTO) =>
+    country.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -30,7 +37,7 @@ const CountryGrid: React.FC = () => {
   return (
  
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {countries && countries.map(
+      {countries && filteredCountries.map(
         (country: CountryResumedDTO) => (
         <div
           key={country.countryCode}
@@ -57,11 +64,14 @@ const CountryGrid: React.FC = () => {
         </div>
         
       ))}
-       <CountryModal
-          isOpen={isModalOpen}
+      {
+        isModalOpen &&
+          <CountryModal
           onClose={() => setIsModalOpen(false)}
           countryCode={select}
         />
+      }
+      
     </div>
   );
 };
