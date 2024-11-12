@@ -2,6 +2,35 @@
 
 ### Atention
 
+## Images
+
+<details>
+  <summary>Initial Page</summary>
+   
+  ![I01](https://i.imgur.com/U0vwaP9.png)
+
+</details>
+<details>
+ <summary>All Countries </summary>
+   
+  ![I02](https://i.imgur.com/dvrUGWM.png)
+
+</details>
+<details>
+ <summary>Filter countries </summary>
+   
+  ![I03](https://i.imgur.com/wGDT9jX.png)
+
+</details>
+<details>
+ <summary>Countrie info </summary>
+   
+  ![I04](https://i.imgur.com/tTbvd0F.png)
+
+</details>
+
+
+
 Need to follow thess steps to run the application, inn both case, go to the ``.env-example file``, and create a new file caled .env and use the same locahost ip is there.
 
 ### For Frontend
