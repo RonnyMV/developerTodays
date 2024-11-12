@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import httpClient from '../service/httpClient';
 import { CountryResumedDTO } from '../dto/countries';
 import CountryModal from './countryInfo';
+import { Spin } from 'antd';
 
 interface CountryGridProps {
   searchQuery: string;
@@ -10,6 +11,7 @@ const CountryGrid: React.FC<CountryGridProps> = ({ searchQuery }) => {
   const [countries, setCountries] = useState<CountryResumedDTO[]>([]);
   const [select, setSelect] = useState <string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const handleopenModal = (country:CountryResumedDTO) => { 
     setSelect(country.countryCode)
@@ -28,6 +30,8 @@ const CountryGrid: React.FC<CountryGridProps> = ({ searchQuery }) => {
         setCountries(data);
       } catch (error) {
         console.error('Error fetching countries:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -37,6 +41,12 @@ const CountryGrid: React.FC<CountryGridProps> = ({ searchQuery }) => {
   return (
  
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {
+          isLoading && ( 
+          <Spin tip="Loading..."  className='flex items-center justify-center absolute self-center '/>
+
+          )
+        }
       {countries && filteredCountries.map(
         (country: CountryResumedDTO) => (
         <div
